@@ -93,7 +93,7 @@ class Simulation:
                     pendingTransactions.add(Transaction(txID))
             nodes[i].setPendingTransaction(pendingTransactions)
             if isinstance(nodes[i], CompliantNode):
-                possibleConsensus |= pendingTransactions
+                possibleConsensus |= pendingTransactions # a = [1,2,3]
 
         # Step 4
         for _round in range(self.numRounds):
@@ -139,5 +139,5 @@ class Simulation:
             print()
 
 if __name__ == "__main__":
-    s = Simulation(numNodes = 100, p_graph = 0.1, p_mal = 0.3, p_txD = 0.01, numR = 10)
+    s = Simulation(numNodes = 100, p_graph = 0.1, p_mal = 0.55, p_txD = 0.03, numR = 10)
     s.main()
